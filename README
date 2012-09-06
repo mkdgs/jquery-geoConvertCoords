@@ -16,7 +16,7 @@ All of the following are supported ways to write geographic coordinates:
  
  http://en.wikipedia.org/wiki/Geographic_coordinate_conversion
  
- usage:
+ usage: 
  
 ```html
 <fieldset class="coords">
