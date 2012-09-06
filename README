@@ -18,7 +18,7 @@ All of the following are supported ways to write geographic coordinates:
  
  usage: 
  
-```html
+```php
 <fieldset class="coords">
 	<input class="latitude" type="text"  /> <- latitude<br />
 	<input class="longitude" type="text" /> <- longitude<br />						
