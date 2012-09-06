@@ -1,0 +1,32 @@
+mickael desgranges mickael.desgranges@bcbgeo.com
+http://bcbgeo.com
+
+Geographic coordinate conversion
+
+this plugin convert input coordinate value to decimal degree
+
+All of the following are supported ways to write geographic coordinates:
+ *   40:26:46N,79:56:55W
+ *   40:26:46.302N 79:56:55.903W
+ *   40°26′47″N 79°58′36″W
+ *   40d 26′ 47″ N 79d 58′ 36″ W
+ *   40.446195N 79.948862W
+ *   40.446195, -79.948862
+ *   40° 26.7717, -79° 56.93172
+ 
+ http://en.wikipedia.org/wiki/Geographic_coordinate_conversion
+ 
+ usage:
+ 
+```html
+<fieldset class="coords">
+	<input class="latitude" type="text"  /> <- latitude<br />
+	<input class="longitude" type="text" /> <- longitude<br />						
+</fieldset>
+
+<script type="text/javascript" >
+	$(function(){				
+		$('.coords').geoConvertCoords();
+	});
+</script>
+```
