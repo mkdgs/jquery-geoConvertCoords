@@ -16,10 +16,12 @@ All of the following are supported ways to write geographic coordinates:
  
  http://en.wikipedia.org/wiki/Geographic_coordinate_conversion
  
- usage: 
+usage: 
 <fieldset class="coords">
-	<input class="latitude" type="text"  /> <- latitude<br />
-	<input class="longitude" type="text" /> <- longitude<br />						
+	<input class="latitude" type="text"  /> <-latitude
+	<br />
+	<input class="longitude" type="text" /> <-longitude
+	<br />						
 </fieldset>
 
 <script type="text/javascript" >
