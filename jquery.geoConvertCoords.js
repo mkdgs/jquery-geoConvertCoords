@@ -19,8 +19,7 @@
 	var methods = {};   
 	var pluginName = 'geoConvertCoords';
 	
-	methods.init = function(params) {
-		
+	methods.init = function(params) {		
 	    return this.each(function() { 
 	 		var op = null;
 			if ( !op ) {
@@ -32,11 +31,10 @@
 				op = jQuery.extend(options, params);				
 			    op.$el = $(this);
 			    // set + config			    
-			} 
+			}
 			op.$el = $(this);
-			op.$longitude =  $( op.el_longitude ,$(this));
-			op.$latitude  =  $( op.el_latitude  ,$(this));
-			
+			op.$longitude = $(op.el_longitude ,$(this));
+			op.$latitude  = $(op.el_latitude  ,$(this));
 			
 			var changeLongitude = function () { 
 				var v = $(this).val().split(',');					 
@@ -57,7 +55,7 @@
 				
 			var changeLatitude = function () {
 				var v = $(this).val().split(',');					
-				if ( v && v.length == 2 ) {  
+				if ( v && v.length == 2 ) { 
 					$(this).val(v[0]);
 					op.$longitude.val(v[1]).trigger('change');
 				}
@@ -65,32 +63,44 @@
 				if ( latitude ) { 
 					$(this).val(latitude);
 					var longitude = methods.toDegree(op.$longitude.val(), 'longitude');
-					if ( longitude ) { 
+					if ( longitude ) {
 						op.$el.trigger('coordinateChange', [latitude , longitude]);
 					}
 				}
 			};				
-			op.$latitude.bind('change', changeLatitude);
-
-			
-			
-			//else op = $(this).data(pluginName);
-			// code here
-		   	// set instance
+			op.$latitude.bind('change', changeLatitude);			
 		   	$(this).data(pluginName, op);	   	
 	    });	
 	};
 	
+	methods.invalidateCoords = function (latitude, longitude) {
+		var maxLatitude = 90;
+		var maxLongitude = 180;
+		if ( !latitude || !longitude ) return 1;		
+		if ( Math.abs(latitude)  <= maxLatitude  ) return 2;
+		if ( Math.abs(longitude) <= maxLongitude ) return 3;
+	};
+
+	methods.invalidateBounds = function(swLat, swLong, neLat, neLong) {
+		if ( !swLat || !swLong || !neLat || !neLong ) return 1;
+		if ( !methods.validateCoords(swLat, swLong) ) return 2;
+		if ( !methods.validateCoords(neLat, neLong) ) return 3;
+		
+		///if ( neLat >= )
+		
+	};
+	
 	methods.longitudeToDegree = function(value) {	
-		return $(this).toDegree(value, 'longitude');
+		return methods.toDegree(value, 'longitude');
 	};
 	
 	methods.latitudeToDegree = function(value) {	
-		return $(this).toDegree(value, 'latitude');
+		return methods.toDegree(value, 'latitude');
 	};
 	
 	methods.toDegree = function(value, type) {		
 		 //var op = $(this).data(pluginName);		
+		   
 			var dmsToDd = function (days, minutes, seconds, direction) {
 			    var dd = parseInt(days) + parseFloat(minutes)/60 + parseFloat(seconds)/(60*60);
 			    return parseFloat(dd*direction);	
