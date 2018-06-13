@@ -1,6 +1,6 @@
 /**
- * @author mickael desgranges mickael.desgranges@bcbgeo.com
- * @desc http://bcbgeo.com
+ * @author mickael desgranges mickael.desgranges@mkdgs.fr
+ * @desc http://mkdgs.fr
  * @version 1.0
  * 
  * http://en.wikipedia.org/wiki/Geographic_coordinate_conversion
